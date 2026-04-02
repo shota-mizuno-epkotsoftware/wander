@@ -1,0 +1,8 @@
+# Docker
+docker/mysql/storage/
+
+# 環境変数
+.env
+
+# OS
+.DS_Store
