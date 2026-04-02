@@ -28,7 +28,7 @@ npm run dev
 docker compose exec app bash
 cd /var/www/html
 php artisan migrate
-
+\`\`\`
 7. 確認
 <http://localhost>
 <http://localhost/login>
