@@ -19,15 +19,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect()->route('home');
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+/*Route::get('/home', function () {
+    return Inertia::render('Map', [
+        'apiKey' => config('services.google.maps_key'),
+    ]);
+});
+*/
 
 Route::prefix('post')
     ->name('post.')
