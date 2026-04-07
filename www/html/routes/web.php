@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,16 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('post')
+    ->name('post.')
+    ->group(function () {
+    Route::post('', [PostController::class, 'store'])->name('store');
+    Route::delete('{post}', [PostController::class, 'destroy'])->name('destroy');
+    Route::patch('{post}', [PostController::class, 'update'])->name('update');
 });
 
 Route::get('/dashboard', function () {
