@@ -19,7 +19,7 @@ class PictureFactory extends Factory
     {
         return [
             'post_id' => Post::factory(),
-            'name' => 'dummy.png',
+            'name' => 'dummy.jpg',
         ];
     }
 }

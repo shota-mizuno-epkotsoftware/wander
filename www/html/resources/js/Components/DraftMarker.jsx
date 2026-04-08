@@ -22,7 +22,7 @@ async function fetchAddress(latLng) {
     };
 }
 
-export default function Marker({ onAddressChange }) {
+export default function DraftMarker({ onAddressChange }) {
     // マップ準備
     const map = useMap();
 

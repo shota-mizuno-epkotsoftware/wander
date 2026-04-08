@@ -5,15 +5,16 @@ import MapView from '@/Components/MapView';
 import LocationForm from '@/Components/LocationForm';
 import { Head } from '@inertiajs/react';
 
-export default function Map({ apiKey, posts }) {
+export default function Map({ apiKey, mapId, posts }) {
   const [address, setAddress] = useState({ zip: '', pref: '', city: '' , town: '' });
   console.log(posts);
+  console.log(mapId, apiKey);
   return (
     <>
       <Head title='WANDER' />
       <APIProvider apiKey={apiKey}>
         <div className={styles.appContainer}>
-          <MapView onAddressChange={setAddress} />
+          <MapView onAddressChange={setAddress} /*mapId={mapId}*/ posts={posts} />
           <div className={styles.menu}>
               <div className={styles.menuTitle}>
                 <h1>WANDER</h1>

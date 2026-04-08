@@ -19,7 +19,7 @@ class Post extends Model
         return $this->hasMany(Picture::class);
     }
 
-    public function addresses()
+    public function address()
     {
         return $this->hasOne(Address::class);
     }

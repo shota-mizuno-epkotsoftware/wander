@@ -1,10 +1,11 @@
 import styles from './MapView.module.css';
 import Ward from './Ward';
-import Marker from './Marker';
-import { Map } from '@vis.gl/react-google-maps';
+import DraftMarker from './DraftMarker';
+import MarkerList from './MarkerList';
+import { Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 import { MAP_STYLES } from '@/constants';
 
-export default function MapView({ onAddressChange }) {
+export default function MapView({ onAddressChange, /*mapId,*/ posts }) {
     return (
         <Map
             className={styles.mapWrapper}
@@ -14,9 +15,11 @@ export default function MapView({ onAddressChange }) {
             streetViewControl={false}
             fullscreenControl={false}
             styles={MAP_STYLES}
+            //mapId={mapId}
         >
             <Ward />
-            <Marker onAddressChange={onAddressChange} />
+            <DraftMarker onAddressChange={onAddressChange} />
+            <MarkerList posts={posts} />
         </Map>
     )
 }

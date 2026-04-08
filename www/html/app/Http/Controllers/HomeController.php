@@ -12,7 +12,8 @@ class HomeController extends Controller
     {
         return Inertia::render('Map', [
             'apiKey' => config('services.google.maps_key'),
-            'posts' => Post::latest()->get(),
+            //'mapId' => config('services.google.maps_map_id'),
+            'posts' => Post::with(['address', 'pictures'])->get(),
         ]);
     }
 }
