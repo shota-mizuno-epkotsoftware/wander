@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('post_id')->constrained();
-            $table->decimal('latitude', 10, 7);
-            $table->decimal('longitude', 10, 7);
+            $table->decimal('latitude', 18, 15);
+            $table->decimal('longitude', 18, 15);
             $table->string('zip');
             $table->string('prefecture');
             $table->string('city');

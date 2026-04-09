@@ -22,7 +22,7 @@ async function fetchAddress(latLng) {
     };
 }
 
-export default function DraftMarker({ onAddressChange }) {
+export default function DraftMarker({ onAddressChange, onPositionChange }) {
     // マップ準備
     const map = useMap();
 
@@ -43,10 +43,12 @@ export default function DraftMarker({ onAddressChange }) {
 
             const address = await fetchAddress(latLng);
             onAddressChange(address);
+            onPositionChange({ lat: latLng.lat(), lng: latLng.lng() });
 
-            currentMarker.current.addListener('dragend', async () => {
+            currentMarker.current.addListener('dragend', async (e) => {
                 const address = await fetchAddress(currentMarker.current.getPosition());
                 onAddressChange(address);
+                onPositionChange({ lat: e.latLng.lat(), lng: e.latLng.lng() });
             });
         };
 
@@ -57,7 +59,7 @@ export default function DraftMarker({ onAddressChange }) {
             clickListener.remove();
             dataClickListener.remove();
         };
-    }, [map, onAddressChange]);
+    }, [map, onAddressChange, onPositionChange]);
 
     return (
         <>

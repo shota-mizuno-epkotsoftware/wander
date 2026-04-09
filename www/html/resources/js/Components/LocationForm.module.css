@@ -64,3 +64,8 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+    font-size: 0.75rem;
+}

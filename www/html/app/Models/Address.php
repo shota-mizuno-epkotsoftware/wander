@@ -9,6 +9,16 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'post_id',
+        'latitude',
+        'longitude',
+        'zip',
+        'prefecture',
+        'city',
+        'town',
+    ];
+
     public function address()
     {
         return $this->belongsTo(Post::class);

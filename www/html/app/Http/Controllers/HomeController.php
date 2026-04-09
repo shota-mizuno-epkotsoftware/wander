@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Models\Address;
 
 class HomeController extends Controller
 {

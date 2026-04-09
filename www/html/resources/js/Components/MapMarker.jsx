@@ -29,7 +29,7 @@ export default function MapMarker({ post }) {
                     background: rgba(255, 255, 255, 0.3);
                     backdrop-filter: blur(12px);
                 ">
-                    <img src=${post.pictures[0].name} style="width: 100%; height: 80px; object-fit: cover" />
+                    <img src=/storage/${post.pictures[0].name} style="width: 100%; height: 80px; object-fit: cover" />
                     <strong style="font-size:14px">${post.title}</strong>
                     <p style="margin:4px 0 0; color:#666; font-size:12px">
                         ${post.description}
