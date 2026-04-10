@@ -7,4 +7,4 @@
 |/home|GET|HomeController#index|トップ画面表示||
 |/post|POST|PostController#store|投稿|差分更新|
 |/post/{post}|DELETE|PostController#destroy|投稿削除|差分更新|
-|/post/{post}|PATCH|PostController#update|投稿修正|差分更新|
+|/post/{post}|put|PostController#update|投稿修正|差分更新|

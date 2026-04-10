@@ -59,8 +59,7 @@ export default function MapMarker({ post }) {
             markerRef.current?.setMap(null);
             isPinnedRef.current = false;
         };
-    }, [map]);
-
+    }, [map, post.title, post.description, post.pictures[0]?.name, post.address.latitude, post.address.longitude]); //useMemoで直す
     return (
         <>
         </>

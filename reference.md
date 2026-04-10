@@ -1,4 +1,4 @@
 # Thanks for the references
 
-- Claude Code
+- Claude
 - <https://zenn.dev/dragonarrow/articles/50ba6a04146483>

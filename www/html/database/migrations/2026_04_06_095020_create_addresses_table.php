@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->decimal('latitude', 18, 15);
             $table->decimal('longitude', 18, 15);
             $table->string('zip');

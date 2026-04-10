@@ -1,0 +1,92 @@
+.postCard {
+    position: relative;
+    width: 450px;
+    height: 100px;
+    margin: 2px;
+    color: black;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.postCard:hover {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+}
+
+.contents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    /*background-color: grey;*/
+}
+
+.user img {
+    width: 75px;
+    height: 75px;
+    padding-top: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userName {
+    font-size: 12px;
+}
+
+.postText {
+    width: 250px;
+    height: 100px;
+}
+
+.address {
+    font-size: 8px;
+}
+
+.address span {
+    padding-left: 2px;
+}
+
+.title {
+    font-size: 14px;
+}
+
+.description {
+    font-size: 10px;
+}
+
+.picture img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.buttonWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.deleteButton button {
+    background-color: transparent;
+    color: orangered;
+    border: 1px solid orangered;
+    border-radius: 30%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.deleteButton button:hover {
+    background-color: orangered;
+    color: white;
+}

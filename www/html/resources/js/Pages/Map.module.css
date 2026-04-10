@@ -8,35 +8,57 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    /* align-items: center; */
     justify-content: center;
-    top: 30px;
-    left: 30px;
+    top: 50px;
+    left: 50px;
     padding: 10px;
-    min-width: 400px;
-    min-height: 700px;
+    min-width: 450px;
+    min-height: 850px;
     width: 30%;
     height: 40%;
     z-index: 10;
     overflow: auto;
-    color: darkblue;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(12px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    scrollbar-width: none;
+    /*outline: 1px solid darkblue;
+    outline-offset: -15px;*/
 }
 
-.menuTitle {
+.menuBar {
     width: 100%;
 }
 
-.menuTitle h1 {
-    font-size: 40px;
-    font-weight: bold;
+.menuBar h1 {
+    font-size: 50px;
     text-align: center;
+    color: rgba(0, 0, 0, 0.3);
 }
 
-.menuTitle h2 {
-    font-size: 20px;
-    text-align: center;
+.viewSwitch {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.viewSwitch button {
+    transition: all 0.3s ease;
+    width: 100px;
+    margin: 0 5px;
+    background: transparent;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+.viewSwitch button:hover {
+    width: 100px;
+    margin: 0 5px;
+    background-color: darkblue;
+    color: white;
+    border: 1px solid darkblue;
+    border-radius: 5px;
+    padding: 1px;
 }

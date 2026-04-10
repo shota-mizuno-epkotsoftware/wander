@@ -35,7 +35,7 @@ Route::prefix('post')
     ->group(function () {
     Route::post('', [PostController::class, 'store'])->name('store');
     Route::delete('{post}', [PostController::class, 'destroy'])->name('destroy');
-    Route::patch('{post}', [PostController::class, 'update'])->name('update');
+    Route::put('{post}', [PostController::class, 'update'])->name('update');
 });
 
 Route::get('/dashboard', function () {

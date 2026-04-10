@@ -1,0 +1,71 @@
+.picturePreview {
+    display: none;
+    text-align: center;
+    width: 300px;
+}
+
+.pictureLabel {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid darkblue;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.picture {
+    display: none;
+}
+
+.formCard {
+    text-align: center;
+}
+
+.field {
+    margin: 5px;
+}
+
+.field img {
+    display: block;
+    margin: 5px auto;
+    max-width: 350px;
+    max-height: 350px;
+    object-fit: contain;
+}
+
+.field input[type="text"], .field textarea {
+    padding: 5px;
+    text-align: center;
+    background: transparent;
+    border: 1px solid darkblue;
+    border-radius: 10px;
+}
+
+.field input[type="text"] {
+    min-width: 350px;
+}
+
+.field textarea {
+    min-width: 350px;
+    min-height: 110px;
+    resize: vertical;
+}
+
+.field input[readonly] {
+    background: rgba(0, 0, 0, 0.25);
+    cursor: default;
+}
+
+.buttonForm {
+    color: darkblue;
+    background-color: transparent;
+    padding: 5px;
+    border: 1px solid darkblue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 0.75rem;
+}
