@@ -26,7 +26,7 @@ html, body {
   display: flex;
 }
 
-/* info window用リセットcss */
+/* InfoWindow調整 */
 .gm-style .gm-style-iw-c {
   padding: 0 !important;
   background: transparent !important;
@@ -34,5 +34,9 @@ html, body {
 }
 .gm-style .gm-style-iw-d { overflow: hidden !important; }
 .gm-style .gm-style-iw-t::after { display: none !important; }
-.gm-style-iw-chr { display: none !important; }
+.gm-style-iw-chr {
+  display: flex !important;
+  top: 0 !important;
+  right: 0 !important;
+}
 .gm-style .gm-style-iw-tc { display: none !important; }

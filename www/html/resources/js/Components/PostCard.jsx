@@ -1,12 +1,14 @@
 import { router } from '@inertiajs/react';
 import styles from './PostCard.module.css';
 
-export default function PostCard({ post }) {
-    const handleDelete = () => {
+export default function PostCard({ post, onDelete }) {
+    const handleDelete = (e) => {
+        e.stopPropagation();
         if (confirm('削除しますか？')) {
             router.delete(`/post/${post.id}`, {
                 onSuccess: () => {
                     console.log('削除成功');
+                    onDelete?.();
                 },
                 onError: (error) => {
                     console.log('削除失敗', error);

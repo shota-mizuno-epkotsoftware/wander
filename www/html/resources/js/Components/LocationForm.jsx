@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm, router } from '@inertiajs/react';
 import styles from './LocationForm.module.css';
 
-export default function LocationForm({ address, position }) {
+export default function LocationForm({ address, position, onSuccess }) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         picture: null,
@@ -43,6 +43,7 @@ export default function LocationForm({ address, position }) {
             forceFormData: true,
             onSuccess: () => {
                 router.reload({ only: ['posts'] });
+                onSuccess();
             },
         });
     }

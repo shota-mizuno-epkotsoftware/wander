@@ -5,7 +5,7 @@ import MarkerList from './MarkerList';
 import { Map, AdvancedMarker } from '@vis.gl/react-google-maps';
 import { MAP_STYLES } from '@/constants';
 
-export default function MapView({ onAddressChange, onPositionChange, /*mapId,*/ posts }) {
+export default function MapView({ onAddressChange, onPositionChange, /*mapId,*/ posts, selectedPost, onSelect }) {
     return (
         <Map
             className={styles.mapWrapper}
@@ -19,7 +19,7 @@ export default function MapView({ onAddressChange, onPositionChange, /*mapId,*/ 
         >
             <Ward />
             <DraftMarker onAddressChange={onAddressChange} onPositionChange={onPositionChange} />
-            <MarkerList posts={posts} />
+            <MarkerList posts={posts} selectedPost={selectedPost} onSelect={onSelect} />
         </Map>
     )
 }

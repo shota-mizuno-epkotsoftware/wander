@@ -60,11 +60,11 @@ class PostController extends Controller
     {
         try {
             $post->delete();
-            return redirect()->route('home')->with('error', '削除に失敗しました');
         } catch (\Exception $e) {
             Log::error('削除失敗:', ['error' => $e->getMessage()]);
             return back()->withErrors([['error' => '削除に失敗しました']]);
         }
+        return redirect()->route('home');
     }
 
     public function update(Request $request, Post $post)

@@ -19,7 +19,13 @@ export default function Map({ apiKey, mapId, posts }) {
       <Head title='WANDER' />
       <APIProvider apiKey={apiKey}>
         <div className={styles.appContainer}>
-          <MapView onAddressChange={setAddress} onPositionChange={setPosition} /*mapId={mapId}*/ posts={posts} />
+          <MapView
+            onAddressChange={setAddress}
+            onPositionChange={setPosition}
+            /*mapId={mapId}*/
+            posts={posts} selectedPost={selectedPost}
+            onSelect={setSelectedPost}
+          />
           <div className={styles.menu}>
               <div className={styles.menuBar}>
                 <h1>WANDER</h1>
@@ -29,8 +35,12 @@ export default function Map({ apiKey, mapId, posts }) {
                 </div>
               </div>
               <div className={styles.panelWrapper}>
-                { view === 'postList' && <PostList posts={posts} />}
-                { view === 'locationForm' && <LocationForm address={address} position={position} />}
+                { view === 'postList' &&
+                  <PostList posts={posts} selectedPost={selectedPost} onSelect={setSelectedPost}/>
+                }
+                { view === 'locationForm' &&
+                  <LocationForm address={address} position={position} onSuccess={() => setView('postList')}/>
+                }
               </div>
               {/* Pagetopコンポーネントを後ほど制作 */}
           </div>
