@@ -10,8 +10,8 @@ import styles from '@/Styles/auth.module.css';
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
+        email: 'test@example.com',
+        password: 'testtest',
         remember: false,
     });
 

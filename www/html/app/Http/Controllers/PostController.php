@@ -30,7 +30,7 @@ class PostController extends Controller
             DB::transaction(function () use ($request) {
                 Log::info('POSTデータ:', $request->all());
                 $post = Post::create([
-                    'user_id' => 1,
+                    'user_id' => $request->user()->id,
                     'title' => $request->input('title'),
                     'description' => $request->input('description'),
                 ]);
@@ -56,8 +56,11 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
+        if ($request->user()->id !== $post->user_id) {
+            abort(403);
+        }
         try {
             $post->delete();
         } catch (\Exception $e) {

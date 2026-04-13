@@ -30,6 +30,19 @@
     /*background-color: grey;*/
 }
 
+.dummyAvatar {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkblue;
+    color: white;
+    padding-top: 5px;
+    border-radius: 50%;
+    font-size: 50px;
+}
+
 .user img {
     width: 75px;
     height: 75px;

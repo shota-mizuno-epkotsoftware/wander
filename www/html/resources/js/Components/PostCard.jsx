@@ -1,7 +1,11 @@
-import { router } from '@inertiajs/react';
+import { router, usePage } from '@inertiajs/react';
 import styles from './PostCard.module.css';
 
 export default function PostCard({ post, onDelete }) {
+    const { auth } = usePage().props;
+    const user = post.user;//auth.user;
+    const isOwner = auth.user.id === post.user_id;
+
     const handleDelete = (e) => {
         e.stopPropagation();
         if (confirm('削除しますか？')) {
@@ -22,9 +26,15 @@ export default function PostCard({ post, onDelete }) {
         <div className={styles.postCard}>
             <div className={styles.contents}>
                 <div className={styles.user}>
-                    <img src={`/storage/${post.pictures[0].name}`} />
+                    {user.avatar ? (
+                        <img src={`/storage/${user.avatar}`} alt={user.name} />
+                    ) : (
+                        <div className={styles.dummyAvatar}>
+                            {user.name.charAt(0).toUpperCase()}
+                        </div>
+                    )}
                     <div className={styles.userName}>
-                        user name
+                            {user.name}
                     </div>
                 </div>
                 <div className={styles.postText}>
@@ -46,9 +56,11 @@ export default function PostCard({ post, onDelete }) {
                 </div>
             </div>
             <div className={styles.buttonWrapper}>
-                <div className={styles.deleteButton}>
-                    <button onClick={handleDelete}>×</button>
-                </div>
+                {isOwner &&
+                    <div className={styles.deleteButton}>
+                        <button onClick={handleDelete}>×</button>
+                    </div>
+                }
             </div>
         </div>
     );

@@ -9,6 +9,7 @@ erDiagram
     users {
         int id PK
         string name "ユーザー名"
+        string avatar "アイコン画像"
         timestamp created_at
         timestamp deleted_at
     }

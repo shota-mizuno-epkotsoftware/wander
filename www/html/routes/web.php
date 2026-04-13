@@ -22,15 +22,11 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-/*Route::get('/home', function () {
-    return Inertia::render('Map', [
-        'apiKey' => config('services.google.maps_key'),
-    ]);
-});
-*/
+Route::get('/home', [HomeController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('home');
 
 Route::prefix('post')
+    ->middleware(['auth', 'verified'])
     ->name('post.')
     ->group(function () {
     Route::post('', [PostController::class, 'store'])->name('store');
