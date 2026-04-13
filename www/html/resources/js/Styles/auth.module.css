@@ -1,0 +1,82 @@
+.status {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: green;
+}
+
+.fieldGroup {
+    margin-top: 16px;
+}
+
+.input {
+    display: block;
+    width: 90%;
+    margin-top: 4px;
+}
+
+.inputLabel {
+    margin: 0;
+}
+
+.inputError {
+    margin-top: 8px;
+    color: red;
+}
+
+.rememberBlock {
+    display: block;
+    margin-top: 16px;
+}
+
+.rememberLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.rememberText {
+    margin-inline-start: 8px;
+    font-size: 14px;
+    color: grey;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.checkBox {
+    border: 1px solid grey;
+}
+
+.resetLink {
+    font-size: 14px;
+    color: grey;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: color 0.15s;
+}
+
+.resetLink:hover {
+    color: darkgray;
+}
+
+.resetLink:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px royalblue;
+}
+
+.submitButton {
+    background: transparent;
+    margin-left: 10px;
+    padding: 4px;
+    border: 1px solid black;
+}
+
+.submitButton:hover {
+    background: black;
+    color: white;
+}
