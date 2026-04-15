@@ -56,11 +56,9 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
-    public function destroy(Request $request, Post $post)
+    public function destroy(Post $post)
     {
-        if ($request->user()->id !== $post->user_id) {
-            abort(403);
-        }
+        $this->authorize('delete', $post);
         try {
             $post->delete();
         } catch (\Exception $e) {
@@ -72,6 +70,7 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update', $post);
         Log::info($request->all());
         // バリデーションチェック
         $request->validate([
