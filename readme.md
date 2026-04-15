@@ -17,35 +17,72 @@ GoogleMapsAPIによる位置情報を用いたSNS風アプリケーション
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-## 環境構築(整備中)
+## 環境構築
+
+### 前提条件
+
+- Docker / Docker Compose がインストール済み
+- Node.js / npm がインストール済み
+- Google Maps API キーを取得済み（[Google Cloud Console](https://console.cloud.google.com/) で取得）
 
 ### 1. リポジトリをクローン
 
-### 2. .env を作成
+```bash
+git clone https://github.com/shota-mizuno-epkotsoftware/wander.git
+cd wander
+```
+
+### 2. `.env` ファイルを作成
 
 ```bash
 cp www/html/.env.example www/html/.env
 ```
 
-### 3. 起動
+`www/html/.env` を編集して以下の項目を設定：
+
+```dotenv
+# DBの接続先をDockerコンテナ名に変更
+DB_HOST=mysql
+DB_DATABASE=test_db_name
+DB_USERNAME=test_user
+DB_PASSWORD=test_pass
+
+# メール送信（MailHog）
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+
+# Google Maps API キー（必須）
+GOOGLE_MAPS_API_KEY=your_api_key_here
+```
+
+### 3. Docker コンテナを起動
 
 ```bash
 docker compose up -d
 ```
 
-### 4. Laravel の初期設定
+起動されるサービス：
+
+|サービス|URL|
+|---|---|
+|アプリ (Apache)|<http://localhost>|
+|phpMyAdmin|<http://localhost:8080>|
+|MailHog (メール確認)|<http://localhost:8025>|
+
+### 4. Laravel 初期設定（コンテナ内）
 
 ```bash
 docker compose exec app bash
 cd /var/www/html
+
 composer install
 php artisan key:generate
 php artisan migrate
-composer require laravel/breeze --dev
-php artisan breeze:install react
+php artisan storage:link
+exit
 ```
 
-### 5. フロントエンドのインストール（ローカル）
+### 5. フロントエンドのセットアップ（ローカル）
 
 ```bash
 cd www/html
@@ -53,16 +90,12 @@ npm install
 npm run dev
 ```
 
-### 6. マイグレーション
+Vite の開発サーバーが起動(ホットリロード)
 
-```bash
-docker compose exec app bash
-cd /var/www/html
-php artisan migrate
-```
+### 6. 動作確認
 
-### 7. 確認
-
-- <http://localhost>
-- <http://localhost/login>
-- <http://localhost/register>
+|URL|内容|
+|---|---|
+|<http://localhost>|ホーム・マップ画面|
+|<http://localhost/register>|ユーザー登録|
+|<http://localhost/login>|ログイン|
