@@ -6,3 +6,6 @@ docker/mysql/storage/
 
 # OS
 .DS_Store
+
+# EC2キーペア
+wander.pem
